@@ -1,0 +1,117 @@
+# =============================================================================
+# 🔒 BẢO MẬT & THÔNG TIN TÀI KHOẢN CÁ NHÂN LOCKET (TUYỆT ĐỐI KHÔNG UP LÊN GIT)
+# =============================================================================
+.locket_session.json
+.locket_moments_cache.json
+cached_moments/
+*.session.json
+
+# =============================================================================
+# 🐍 PYTHON: VIRTUAL ENVIRONMENT & CACHE
+# =============================================================================
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller / Nuitka
+*.manifest
+*.spec
+
+# =============================================================================
+# ⚛️ NODE.JS / REACT FRONTEND
+# =============================================================================
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.pnp
+.pnp.js
+
+# Nhật ký npm / yarn / pnpm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vite cache
+.vite/
+frontend/.vite/
+
+# =============================================================================
+# 🌐 BẢN BUILD WEB FRONTEND (BẮT BUỘC PUSH ĐỂ CHẠY MÁY KHÔNG CÓ NPM)
+# =============================================================================
+!dist/
+!dist/**
+
+# =============================================================================
+# 🔑 BIẾN MÔI TRƯỜNG & SECRETS
+# =============================================================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# =============================================================================
+# 💻 HỆ ĐIỀU HÀNH & TRÌNH SOẠN THẢO (OS & IDEs)
+# =============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# VS Code / JetBrains / Vim
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+

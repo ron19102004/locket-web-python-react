@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd "$DIR"
+
+echo "========================================================="
+echo "  Đang khởi chạy Locket Web (Windows System Python)..."
+echo "========================================================="
+
+if command -v py &> /dev/null; then
+    exec py app.py "$@"
+elif command -v python &> /dev/null; then
+    exec python app.py "$@"
+elif command -v python3 &> /dev/null; then
+    exec python3 app.py "$@"
+else
+    echo "❌ Không tìm thấy Python trên hệ thống Windows!"
+    echo "Vui lòng cài đặt Python và tích chọn 'Add Python to PATH'."
+    exit 1
+fi
