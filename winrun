@@ -6,14 +6,38 @@ echo "========================================================="
 echo "  Đang khởi chạy Locket Web (Windows System Python)..."
 echo "========================================================="
 
+# 1. Xác định trình khởi chạy Python trên Windows
+PY_CMD=""
 if command -v py &> /dev/null; then
-    exec py app.py "$@"
+    PY_CMD="py"
 elif command -v python &> /dev/null; then
-    exec python app.py "$@"
+    PY_CMD="python"
 elif command -v python3 &> /dev/null; then
-    exec python3 app.py "$@"
+    PY_CMD="python3"
 else
     echo "❌ Không tìm thấy Python trên hệ thống Windows!"
     echo "Vui lòng cài đặt Python và tích chọn 'Add Python to PATH'."
     exit 1
 fi
+
+# 2. Kiểm tra xem đã cài đặt thư viện trong requirements.txt chưa
+echo "[*] Đang kiểm tra thư viện Python..."
+if ! "$PY_CMD" -c "import flask, flask_cors, requests, PIL" &> /dev/null; then
+    echo "[!] Phát hiện chưa cài đặt đầy đủ thư viện."
+    echo "[*] Đang tiến hành tự động cài đặt từ requirements.txt..."
+    echo "---------------------------------------------------------"
+    "$PY_CMD" -m pip install -r requirements.txt
+    if [ $? -ne 0 ]; then
+        echo "❌ Cài đặt thư viện thất bại. Vui lòng kiểm tra kết nối mạng."
+        exit 1
+    fi
+    echo "---------------------------------------------------------"
+    echo "✅ Đã cài đặt đầy đủ thư viện thành công!"
+else
+    echo "✅ Thư viện đã được cài đặt đầy đủ."
+fi
+
+# 3. Khởi chạy ứng dụng Locket Web
+echo ""
+echo "[*] Đang khởi động máy chủ Locket Web..."
+exec "$PY_CMD" app.py "$@"
